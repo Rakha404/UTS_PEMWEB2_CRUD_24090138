@@ -33,7 +33,7 @@ export default function PembicaraUpdate() {
 
   const getDetailPembicara = async () => {
     try {
-      const response = await fetch(`http://localhost:3000/pembicara/${id}`);
+      const response = await fetch(`https://backendcrud-omega.vercel.app/pembicara/${id}`);
       const data = await response.json();
 
       setValue("name", data.name);
@@ -46,7 +46,7 @@ export default function PembicaraUpdate() {
 
   const onSubmit = async (data: FormData) => {
     try {
-      const response = await fetch(`http://localhost:3000/pembicara/${id}`, {
+      const response = await fetch(`https://backendcrud-omega.vercel.app/pembicara/${id}`, {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",

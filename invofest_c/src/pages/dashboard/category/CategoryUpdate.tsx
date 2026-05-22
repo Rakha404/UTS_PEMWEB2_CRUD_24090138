@@ -29,7 +29,7 @@ export default function CategoryUpdate() {
 
   const getDetailCategory = async () => {
     try {
-      const response = await fetch(`http://localhost:3000/categories/${id}`);
+      const response = await fetch(`https://backendcrud-omega.vercel.app/categories/${id}`);
       const data = await response.json();
 
       setValue("name", data.name);
@@ -40,7 +40,7 @@ export default function CategoryUpdate() {
 
   const onSubmit = async (data: FormData) => {
     try {
-      const response = await fetch(`http://localhost:3000/categories/${id}`, {
+      const response = await fetch(`https://backendcrud-omega.vercel.app/categories/${id}`, {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",

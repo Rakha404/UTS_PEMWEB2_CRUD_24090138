@@ -27,7 +27,7 @@ export default function CategoryCreate() {
 
   const onSubmit = async (data: FormData) => {
     try {
-      const response = await fetch("http://localhost:3000/categories", {
+      const response = await fetch("https://backendcrud-omega.vercel.app/categories", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

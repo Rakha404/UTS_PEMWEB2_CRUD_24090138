@@ -52,20 +52,20 @@ export default function EventCreate() {
   });
 
   const getCategories = async () => {
-    const response = await fetch("http://localhost:3000/categories");
+    const response = await fetch("https://backendcrud-omega.vercel.app/categories");
     const data = await response.json();
     setCategories(data);
   };
 
   const getPembicara = async () => {
-    const response = await fetch("http://localhost:3000/pembicara");
+    const response = await fetch("https://backendcrud-omega.vercel.app/pembicara");
     const data = await response.json();
     setPembicara(data);
   };
 
   const onSubmit = async (data: FormData) => {
     try {
-      const response = await fetch("http://localhost:3000/events", {
+      const response = await fetch("https://backendcrud-omega.vercel.app/events", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

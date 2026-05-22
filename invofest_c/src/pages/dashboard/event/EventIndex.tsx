@@ -28,7 +28,7 @@ export default function EventIndex() {
 
   const getEvents = async () => {
     try {
-      const response = await fetch("http://localhost:3000/events");
+      const response = await fetch("https://backendcrud-omega.vercel.app/events");
       const data = await response.json();
       setEvents(data);
     } catch (error) {
@@ -41,7 +41,7 @@ export default function EventIndex() {
     if (!confirmDelete) return;
 
     try {
-      const response = await fetch(`http://localhost:3000/events/${id}`, {
+      const response = await fetch(`https://backendcrud-omega.vercel.app/events/${id}`, {
         method: "DELETE",
       });
 
