@@ -71,7 +71,7 @@ export default function EventCreate() {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          title: data.name,
+          name: data.name,
           description: data.description,
           location: data.location,
           dateEvent: data.dateEvent,
@@ -107,8 +107,8 @@ export default function EventCreate() {
 
         <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-6">
           <InputText
-            label="Event Title"
-            nama="title"
+            label="Nama Event"
+            nama="name"
             register={register}
             error={errors.name?.message}
           />
@@ -141,7 +141,7 @@ export default function EventCreate() {
 
           <div>
             <label className="block mb-2 font-medium text-red-900">
-              Category Event
+              Category
             </label>
             <select
               {...register("categoryId")}
