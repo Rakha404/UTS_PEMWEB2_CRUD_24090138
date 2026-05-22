@@ -104,7 +104,7 @@ export default function EventIndex() {
 
             <div className="flex gap-2 mt-4">
               <Link
-                to={`/dashboard/event/edit/${item.id}`}
+                to={`/dashboard/event/update/${item.id}`}
                 className="px-4 py-2 rounded-xl bg-red-900 text-white text-sm hover:bg-pink-200 hover:text-black"
               >
                 Edit

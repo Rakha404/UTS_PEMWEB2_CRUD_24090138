@@ -85,19 +85,19 @@ export default function PembicaraUpdate() {
             error={errors.name?.message}
           />
 
-          <InputText
-            label="role"
-            nama="role"
-            register={register}
-            error={errors.role?.message}
-          />
+         <InputText
+  label="Role"
+  nama="role"
+  register={register}
+  error={errors.role?.message}
+/>
 
-          <InputText
-            label="image"
-            nama="image"
-            register={register}
-            error={errors.image?.message}
-          />
+<InputText
+  label="Image"
+  nama="image"
+  register={register}
+  error={errors.image?.message}
+/>
 
           <div className="flex justify-start mt-4">
             <Button type="submit" label="Update Pembicara" />

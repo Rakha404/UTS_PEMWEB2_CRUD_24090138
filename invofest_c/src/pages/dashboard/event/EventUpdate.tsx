@@ -53,20 +53,20 @@ export default function EventUpdate() {
   });
 
   const getCategories = async () => {
-    const response = await fetch("https://backend-mu-khaki-76.vercel.app/category");
+    const response = await fetch("https://backendcrud-omega.vercel.app/categories");
     const data = await response.json();
     setCategories(data);
   };
 
   const getPembicara = async () => {
-    const response = await fetch("https://backend-mu-khaki-76.vercel.app/pembicara");
+    const response = await fetch("https://backendcrud-omega.vercel.app/pembicara");
     const data = await response.json();
     setPembicara(data);
   };
 
   const getDetailEvent = async () => {
     try {
-      const response = await fetch(`https://backend-mu-khaki-76.vercel.app/event/${id}`);
+      const response = await fetch(`https://backendcrud-omega.vercel.app/events/${id}`);
       const data = await response.json();
 
       setValue("name", data.name);
@@ -82,13 +82,13 @@ export default function EventUpdate() {
 
   const onSubmit = async (data: FormData) => {
     try {
-      const response = await fetch(`https://backend-mu-khaki-76.vercel.app/event/${id}`, {
+      const response = await fetch(`https://backendcrud-omega.vercel.app/events/${id}`, {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          title: data.name,
+          name: data.name,
           description: data.description,
           location: data.location,
           dateEvent: data.dateEvent,
@@ -119,13 +119,13 @@ export default function EventUpdate() {
     <div className="p-6 max-w-2xl mx-auto">
       <div className="bg-[#f8f5f0] rounded-2xl shadow-md p-8 border border-[#e0d6c8]">
         <h2 className="text-2xl font-bold text-[#3e2f1c] mb-6 border-b border-[#d6c7b2] pb-4">
-          Edit Event
+          Update Event
         </h2>
 
         <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-6">
           <InputText
-            label="Event Title"
-            nama="title"
+            label="Nama Event"
+            nama="name"
             register={register}
             error={errors.name?.message}
           />
@@ -144,12 +144,17 @@ export default function EventUpdate() {
             error={errors.location?.message}
           />
 
-          <InputText
-            label="Event Date"
-            nama="dateEvent"
-            register={register}
-            error={errors.dateEvent?.message}
-          />
+           <div className="flex flex-col gap-2">
+              <label className="text-sm font-medium text-gray-700">Tanggal & Jam Pelaksanaan</label>
+              <input
+                type="datetime-local"
+                {...register("dateEvent")}
+                className="w-full border rounded px-3 py-2 outline-none focus:ring-2 focus:ring-[#802D43] transition-colors"
+              />
+              {errors.dateEvent && (
+                <p className="text-red-500">{errors.dateEvent.message}</p>
+              )}
+            </div>
 
           <div>
             <label className="block mb-2 font-medium text-red-900">
