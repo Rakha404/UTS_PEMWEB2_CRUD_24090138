@@ -79,8 +79,10 @@ export const showPembicara = async (req: Request, res: Response) => {
 // 4. Mengupdate pembicara
 export const updatePembicara = async (req: Request, res: Response) => {
   try {
+    console.log(req.body);
+
     const { id } = req.params;
-    const { name, bidang, bio } = req.body;
+    const { name, role, image } = req.body;
 
     const updatedPembicara = await prisma.pembicara.update({
       where: {
@@ -88,8 +90,8 @@ export const updatePembicara = async (req: Request, res: Response) => {
       },
       data: {
         name,
-        bidang,
-        bio,
+        role,
+        image,
       },
     });
 
@@ -98,6 +100,8 @@ export const updatePembicara = async (req: Request, res: Response) => {
       pembicara: updatedPembicara,
     });
   } catch (error) {
+    console.error(error);
+
     res.status(500).json({
       message: "Gagal mengupdate pembicara",
       error,
@@ -110,6 +114,12 @@ export const deletePembicara = async (req: Request, res: Response) => {
   try {
     const { id } = req.params;
 
+    await prisma.event.deleteMany({
+      where: {
+        pembicaraId: Number(id),
+      },
+    });
+
     await prisma.pembicara.delete({
       where: {
         id: Number(id),
@@ -120,6 +130,8 @@ export const deletePembicara = async (req: Request, res: Response) => {
       message: "Pembicara berhasil dihapus",
     });
   } catch (error) {
+    console.error(error);
+
     res.status(500).json({
       message: "Gagal menghapus pembicara",
       error,
