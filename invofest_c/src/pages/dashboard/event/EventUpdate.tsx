@@ -117,8 +117,8 @@ export default function EventUpdate() {
 
   return (
     <div className="p-6 max-w-2xl mx-auto">
-      <div className="bg-[#f8f5f0] rounded-2xl shadow-md p-8 border border-[#e0d6c8]">
-        <h2 className="text-2xl font-bold text-[#3e2f1c] mb-6 border-b border-[#d6c7b2] pb-4">
+      <div className="bg-pink-200 rounded-2xl shadow-md p-8 border border-black">
+        <h2 className="text-2xl font-bold text-red-900 mb-6 border-b border-pink-200 pb-4">
           Update Event
         </h2>
 
