@@ -1,12 +1,18 @@
 import express from "express";
-import { createEvent, deleteEvent, getEvent, showEvent, updateEvents } from "../controllers/eventController.js";
+import {
+  createEvent,
+  deleteEvent,
+  getEvent,
+  showEvent,
+  updateEvents,
+} from "../controllers/eventController.js";
 
 const router = express.Router();
 
 router.get("/", getEvent);
-router.post("/", createEvent); //menyimpan data event
-router.get("/id", showEvent); //menampilkan data event berdasarkan id
-router.put("/:id", updateEvents); //mengupdate data event berdasarkan id
-router.delete("/:id", deleteEvent); //menghapus data event berdasarkan id
+router.post("/", createEvent);
+router.get("/:id", showEvent);
+router.put("/:id", updateEvents);
+router.delete("/:id", deleteEvent);
 
 export default router;
